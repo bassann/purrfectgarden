@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kissan Sanastopuutarha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'VT323', monospace;
+      }
+      /* Ensure SVG pixel art stays crisp */
+      svg {
+        shape-rendering: crispEdges;
+      }
+      .pixel-art {
+        image-rendering: pixelated;
+      }
+      .animate-bounce-pixel {
+        animation: bounce-pixel 1s infinite steps(2);
+      }
+      @keyframes bounce-pixel {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+      .bg-pixel-grid {
+        background-color: #fdfbf7; /* Softer cream background */
+        background-image: 
+          linear-gradient(#e7e5e4 2px, transparent 2px),
+          linear-gradient(90deg, #e7e5e4 2px, transparent 2px);
+        background-size: 40px 40px;
+        background-position: -2px -2px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-pixel-grid text-stone-800">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

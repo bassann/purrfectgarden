@@ -211,6 +211,21 @@ export const Gogolink: React.FC = () => {
                 </div>
             )}
 
+            {/* Loading / Error Views */}
+            {gameState === GameState.LOADING && (
+                <div className="h-64 flex flex-col items-center justify-center">
+                    <div className="w-12 h-12 border-4 border-cyan-200 border-t-cyan-500 animate-spin rounded-full"></div>
+                    <p className="mt-4 text-stone-400">Valmistellaan kortteja...</p>
+                </div>
+            )}
+            
+            {gameState === GameState.ERROR && (
+                <div className="text-center py-12">
+                     <p className="text-red-500 text-2xl mb-4">Virhe ladattaessa tasoa.</p>
+                     <button onClick={() => setGameState(GameState.MENU)} className="px-6 py-2 bg-stone-200 rounded-lg">Takaisin</button>
+                </div>
+            )}
+
             {/* Game Over Modal */}
             {gameState === GameState.GAMEOVER && (
                  <div className="absolute inset-0 bg-stone-900/40 flex flex-col items-center justify-center z-50 animate-in fade-in backdrop-blur-sm rounded-3xl">
